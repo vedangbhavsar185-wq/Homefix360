@@ -1,0 +1,534 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GharSeva - Home Services</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #222;
+}
+
+header {
+    background: #102a43;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h1 {
+    color: #ffd166;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(135deg, #087e8b, #102a43);
+    color: white;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+}
+
+.search {
+    width: 90%;
+    max-width: 500px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+section {
+    padding: 40px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px 18px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 4px 15px #00000012;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px #00000020;
+}
+
+.card .emoji {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #102a43;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+button {
+    background: #087e8b;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #065f68;
+}
+
+.form-box {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.price {
+    font-size: 20px;
+    color: #087e8b;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.listing {
+    background: #e6f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+footer {
+    background: #102a43;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#message {
+    margin-top: 15px;
+    color: #087e8b;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    section {
+        padding: 30px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏠 GharSeva</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#booking">Booking</a>
+        <a href="#marketplace">Marketplace</a>
+    </nav>
+</header>
+
+<div class="hero" id="home">
+    <h2>All Home Services in One Place</h2>
+    <p>Book trusted home services easily and conveniently.</p>
+    <input class="search" id="search"
+           type="text"
+           placeholder="Search a service..."
+           oninput="searchServices()">
+</div>
+
+<section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services" id="serviceList"></div>
+</section>
+
+<section id="booking">
+    <h2 class="section-title">Book a Service</h2>
+
+    <div class="form-box">
+        <form id="bookingForm">
+            <label>Your Name</label>
+            <input name="name" required placeholder="Enter your name">
+
+            <label>Mobile Number</label>
+            <input name="phone" required type="tel"
+                   pattern="[0-9]{10}"
+                   placeholder="10-digit mobile number">
+
+            <label>Select Service</label>
+            <select name="service" id="bookingService" required>
+                <option value="">Choose a service</option>
+            </select>
+
+            <label>Address</label>
+            <textarea name="address" required
+                      placeholder="Enter your full address"></textarea>
+
+            <label>Preferred Date</label>
+            <input name="date" type="date" required>
+
+            <label>Additional Details</label>
+            <textarea name="details"
+                      placeholder="Describe your requirement"></textarea>
+
+            <div class="price" id="cookPrice">
+                Personal Cook: ₹700
+            </div>
+
+            <button type="submit">Submit Booking Request</button>
+        </form>
+        <p id="message"></p>
+    </div>
+</section>
+
+<section id="marketplace">
+    <h2 class="section-title">TV & Property Marketplace</h2>
+
+    <div class="form-box">
+        <div class="listing">
+            <h3>📺 New TV Booking</h3>
+            <p>Request a new TV by submitting your requirements.</p>
+            <button onclick="showMarketForm('New TV Booking')">
+                Book New TV
+            </button>
+        </div>
+
+        <div class="listing">
+            <h3>📺 Second-Hand TV Sale</h3>
+            <p>Submit your old TV details to list it for sale.</p>
+            <button onclick="showMarketForm('Second-Hand TV Sale')">
+                Sell Second-Hand TV
+            </button>
+        </div>
+
+        <div class="listing">
+            <h3>🛋️ Sofa Set Booking</h3>
+            <p>Send a request for the sofa set you want.</p>
+            <button onclick="showMarketForm('Sofa Set Booking')">
+                Book Sofa Set
+            </button>
+        </div>
+
+        <div class="listing">
+            <h3>🏡 House Photo Upload & Sale</h3>
+            <p>Upload house photos and property details.</p>
+            <button onclick="showMarketForm('House Photo Upload & Sale')">
+                List Your House
+            </button>
+        </div>
+
+        <div id="marketForm" class="hidden">
+            <h3 id="marketTitle"></h3>
+            <form id="marketRequest">
+                <input name="name" required placeholder="Your name">
+                <input name="phone" required type="tel"
+                       pattern="[0-9]{10}"
+                       placeholder="10-digit mobile number">
+                <input name="item" required
+                       placeholder="Product or property details">
+                <input name="price" type="number" min="0"
+                       placeholder="Expected price (if applicable)">
+                <label>Upload Photos (optional)</label>
+                <input name="photos" type="file"
+                       accept="image/*" multiple>
+                <textarea name="details"
+                          placeholder="Additional details"></textarea>
+                <button type="submit">Submit Request</button>
+                <button type="button" onclick="closeMarketForm()">
+                    Cancel
+                </button>
+            </form>
+            <p id="marketMessage"></p>
+        </div>
+    </div>
+</section>
+
+<section id="other-services">
+    <h2 class="section-title">Service Details</h2>
+    <div class="form-box">
+        <p>
+            Choose any service above to create a booking request.
+            Our listed services include home repairs, installation,
+            maintenance, property services and product requests.
+        </p>
+    </div>
+</section>
+
+<footer>
+    <h3>GharSeva</h3>
+    <p>Home Services Made Simple</p>
+    <p>Electrician • Plumber • Repairs • Booking • Property</p>
+    <p>© 2026 GharSeva</p>
+</footer>
+
+<script>
+const services = [
+    {
+        name: "Electrician",
+        icon: "⚡",
+        description: "House wiring, switchboard repair, lights and fan fitting."
+    },
+    {
+        name: "Plumber",
+        icon: "🔧",
+        description: "Pipe fitting, leakage repair, tap and shower installation."
+    },
+    {
+        name: "House Lining",
+        icon: "🏠",
+        description: "House lining and interior work."
+    },
+    {
+        name: "Personal Cook / Private Home Chef",
+        icon: "👨‍🍳",
+        description: "Personal cooking service at your home. Price: ₹700."
+    },
+    {
+        name: "Puppy Setup",
+        icon: "🐶",
+        description: "Puppy setup service."
+    },
+    {
+        name: "Computer & Laptop Repairing",
+        icon: "💻",
+        description: "Computer, laptop hardware and software repair."
+    },
+    {
+        name: "Mixer Machine Repairing",
+        icon: "🔌",
+        description: "Mixer grinder inspection and repair."
+    },
+    {
+        name: "TV Repairing",
+        icon: "📺",
+        description: "LED and LCD television repair."
+    },
+    {
+        name: "Sofa Set Booking",
+        icon: "🛋️",
+        description: "Send a request to book a sofa set."
+    },
+    {
+        name: "New TV Booking & Second-Hand TV Sale",
+        icon: "📺",
+        description: "Request a new TV or list a second-hand TV for sale."
+    },
+    {
+        name: "House Photo Upload & Sale",
+        icon: "🏡",
+        description: "Upload house photos and submit property sale details."
+    },
+    {
+        name: "CCTV Security Camera Installation",
+        icon: "📹",
+        description: "New CCTV camera installation and setup."
+    },
+    {
+        name: "New House Construction",
+        icon: "🏗️",
+        description: "Request consultation for building a new house."
+    },
+    {
+        name: "Home Appliance Maintenance & Repair",
+        icon: "🧰",
+        description: "Home appliance maintenance and repair."
+    },
+    {
+        name: "Smartphone / Mobile Device Repair",
+        icon: "📱",
+        description: "Mobile display, battery, charging and software repair."
+    }
+];
+
+const serviceList = document.getElementById("serviceList");
+const bookingService = document.getElementById("bookingService");
+
+function renderServices(list) {
+    serviceList.innerHTML = "";
+
+    list.forEach(service => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const icon = document.createElement("div");
+        icon.className = "emoji";
+        icon.textContent = service.icon;
+
+        const title = document.createElement("h3");
+        title.textContent = service.name;
+
+        const description = document.createElement("p");
+        description.textContent = service.description;
+
+        const button = document.createElement("button");
+        button.textContent = "Book Now";
+        button.addEventListener("click", () => {
+            bookingService.value = service.name;
+            document.getElementById("booking").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        card.append(icon, title, description, button);
+        serviceList.appendChild(card);
+    });
+}
+
+function populateBookingOptions() {
+    services.forEach(service => {
+        const option = document.createElement("option");
+        option.value = service.name;
+        option.textContent = service.name;
+        bookingService.appendChild(option);
+    });
+}
+
+function searchServices() {
+    const query = document.getElementById("search")
+        .value.toLowerCase().trim();
+
+    const filtered = services.filter(service =>
+        (service.name + " " + service.description)
+            .toLowerCase().includes(query)
+    );
+
+    renderServices(filtered);
+}
+
+bookingService.addEventListener("change", () => {
+    document.getElementById("cookPrice").textContent =
+        bookingService.value === "Personal Cook / Private Home Chef"
+            ? "Personal Cook: ₹700"
+            : "Final price will be confirmed after reviewing your request.";
+});
+
+document.getElementById("bookingForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const data = Object.fromEntries(new FormData(event.target).entries());
+
+    document.getElementById("message").textContent =
+        "Booking request prepared for " + data.service +
+        ". This demo does not send it to a server.";
+
+    console.log("Demo booking request:", data);
+    event.target.reset();
+});
+
+function showMarketForm(type) {
+    document.getElementById("marketForm").classList.remove("hidden");
+    document.getElementById("marketTitle").textContent = type;
+    document.getElementById("marketMessage").textContent = "";
+    document.getElementById("marketForm").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function closeMarketForm() {
+    document.getElementById("marketForm").classList.add("hidden");
+}
+
+document.getElementById("marketRequest").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const data = Object.fromEntries(new FormData(event.target).entries());
+
+    document.getElementById("marketMessage").textContent =
+        "Your request has been prepared in this demo. It has not been sent to a server.";
+
+    console.log("Demo marketplace request:", data);
+    event.target.reset();
+});
+
+populateBookingOptions();
+renderServices(services);
+</script>
+
+</body>
+</html>
+```
+

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://www.shutterstock.com/image-vector/eagle-logo-fierce-vibrant-soaring-260nw-2494369867.jpg">
+<title>Elite Travel</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#fff;
+    color:#222;
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.5);
+    z-index:1000;
+}
+
+.logo{
+    color:#fff;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#d4af37;
+}
+
+.hero{
+    height:100vh;
+    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-content{
+    color:white;
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#d4af37;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+}
+
+.section{
+    padding:80px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+.destinations{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.card{
+    overflow:hidden;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.about{
+    background:#f8f8f8;
+    text-align:center;
+}
+
+.about p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.contact{
+    background:#111;
+    color:white;
+}
+
+.contact form{
+    max-width:600px;
+    margin:auto;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:5px;
+}
+
+.contact button{
+    width:100%;
+    padding:15px;
+    background:#d4af37;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:18px;
+}
+
+footer{
+    background:#000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:45px;
+}
+
+nav{
+    display:none;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo" style="color: blue;">ELITE TRAVEL</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Destinations</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Travel Beyond Luxury</h1>
+        <p>Unique journeys crafted exclusively for extraordinary travelers.</p>
+        <a href="#" class="btn">Plan Your Trip</a>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Featured Destinations</h2>
+
+    <div class="destinations">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9">
+            <div class="card-content">
+                <h3>Italy</h3>
+                <p>Private villas, vineyards and unforgettable experiences.</p>
+            </div>
+            <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE-b8WUbknRXMv3KsSBQVGmFVRJ3Ur9d-WvA&s" alt=""></div>
+            <h3>burj khalifa</h3>
+            <p>Staying in the Burj Khalifa means booking a room at the Armani Hotel Dubai, located inside the iconic tower. A one-night stay generally ranges from AED 1,500 to AED 3,000 ($400 to $800 USD) for standard rooms, while premium suites can easily exceed AED 25,000 ($6,800 USD) per night</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf">
+            <div class="card-content">
+                <h3>Japan</h3>
+                <p>Experience luxury blended with ancient traditions.</p>
+            </div>
+            <div>
+                <img src="data:image/jpeg;base64,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" alt="">
+                <h3>Gateway of India</h3>
+                <p>Gateway of India monument near the entrance to Mumbai (Bombay) Harbour, western India, on the east coast of the Arabian Sea.
+</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5">
+            <div class="card-content">
+                <h3>Africa Safari</h3>
+                <p>Luxury wildlife adventures in breathtaking landscapes.</p>
+            </div>
+        <div>
+            <img src="https://images.squarespace-cdn.com/content/v1/57b9b98a29687f1ef5c622df/1486569490019-JNIJSAZYF6HPK7DTAJD5/red+square+moscow?format=2500w">
+            <h3>moscow</h3>
+            <p> with a highly digitized infrastructure, excellent and affordable public transportation, and rich cultural offerings. While life in the capital is vibrant and convenient, potential downsides include severe traffic congestion, long, dark winters, and the complexities of the current geopolitical climate
+            </p>
+        </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section about">
+    <h2 class="section-title">Why Choose Us?</h2>
+    <p>
+        We create bespoke luxury travel experiences designed around your
+        dreams. From private islands to exclusive adventures, every journey
+        is tailored to perfection.
+    </p>
+</section>
+
+<section class="section contact">
+    <h2 class="section-title">Start Your Journey</h2>
+
+    <form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email Address">
+        <textarea rows="5" placeholder="Tell us about your dream trip"></textarea>
+        <button type="submit">Send Inquiry</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 Elite Travel | Luxury Travel Experiences
+</footer>
+
+</body>
+</html>

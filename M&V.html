@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>M&V Developers — We Build The Future</title>
+
+<meta name="description"
+content="M&V Software Developers — Premium websites, e-commerce, custom development, SEO and digital experiences.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{
+  --cyan:#00f5ff;
+  --blue:#3b5cff;
+  --purple:#9b5cff;
+  --pink:#ff3cac;
+  --bg:#050510;
+  --card:rgba(255,255,255,.055);
+  --border:rgba(255,255,255,.12);
+  --white:#fff;
+  --muted:#9ea5bd;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:white;
+  font-family:Inter, sans-serif;
+  overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(0,245,255,.13),transparent 25%),
+    radial-gradient(circle at 85% 15%,rgba(155,92,255,.16),transparent 27%),
+    radial-gradient(circle at 50% 90%,rgba(255,60,172,.1),transparent 25%),
+    #050510;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  opacity:.17;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
+/* ================= CURSOR GLOW ================= */
+
+.cursor{
+  position:fixed;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle,
+    rgba(0,245,255,.10),
+    transparent 65%);
+  transform:translate(-50%,-50%);
+  z-index:-1;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(1150px,92%);
+  z-index:1000;
+}
+
+.navbar{
+  padding:13px 18px;
+  border:1px solid var(--border);
+  background:rgba(8,8,20,.72);
+  backdrop-filter:blur(22px);
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 20px 70px rgba(0,0,0,.35);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  color:white;
+  text-decoration:none;
+}
+
+.logo-mark{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  background:
+    linear-gradient(135deg,var(--cyan),var(--purple));
+  box-shadow:
+    0 0 25px rgba(0,245,255,.25);
+}
+
+.logo strong{
+  font-family:"Space Grotesk";
+  font-size:16px;
+}
+
+.logo small{
+  display:block;
+  color:#7f89a8;
+  font-size:9px;
+  letter-spacing:2px;
+  margin-top:2px;
+}
+
+nav{
+  display:flex;
+  gap:25px;
+}
+
+nav a{
+  color:#b9bfd2;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:600;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:var(--cyan);
+}
+
+.nav-btn{
+  padding:11px 18px;
+  border-radius:12px;
+  background:white;
+  color:#050510;
+  text-decoration:none;
+  font-weight:800;
+  font-size:12px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100vh;
+  padding:170px 20px 100px;
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+
+.hero-container{
+  width:min(1150px,100%);
+  margin:auto;
+  text-align:center;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 15px;
+  border:1px solid rgba(0,245,255,.25);
+  background:rgba(0,245,255,.06);
+  border-radius:50px;
+  color:var(--cyan);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  animation:pulse 2s infinite;
+}
+
+.badge i{
+  width:7px;
+  height:7px;
+  background:#00ff9d;
+  border-radius:50%;
+  box-shadow:0 0 12px #00ff9d;
+}
+
+@keyframes pulse{
+  50%{box-shadow:0 0 30px rgba(0,245,255,.13)}
+}
+
+.hero h1{
+  margin-top:30px;
+  font-family:"Space Grotesk";
+  font-size:clamp(52px,9vw,115px);
+  line-height:.9;
+  letter-spacing:-6px;
+  font-weight:700;
+}
+
+.gradient-text{
+  background:linear-gradient(
+    90deg,
+    var(--cyan),
+    #fff,
+    var(--purple),
+    var(--pink)
+  );
+  background-size:300%;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:gradient 7s linear infinite;
+}
+
+@keyframes gradient{
+  to{background-position:300%}
+}
+
+.hero p{
+  max-width:650px;
+  margin:30px auto 0;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.8;
+}
+
+.hero-buttons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:15px 25px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:14px;
+  transition:.35s;
+}
+
+.btn-primary{
+  color:#001014;
+  background:linear-gradient(90deg,var(--cyan),#b9ffff);
+  box-shadow:0 0 35px rgba(0,245,255,.22);
+}
+
+.btn-primary:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 55px rgba(0,245,255,.4);
+}
+
+.btn-secondary{
+  color:white;
+  border:1px solid var(--border);
+  background:var(--card);
+  backdrop-filter:blur(10px);
+}
+
+.btn-secondary:hover{
+  border-color:var(--cyan);
+  transform:translateY(-5px);
+}
+
+/* ================= FLOATING ORBS ================= */
+
+.orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(2px);
+  pointer-events:none;
+}
+
+.orb.one{
+  width:110px;
+  height:110px;
+  left:7%;
+  top:28%;
+  background:radial-gradient(circle at 30% 30%,#fff,var(--cyan),transparent 70%);
+  animation:float1 7s ease-in-out infinite;
+}
+
+.orb.two{
+  width:160px;
+  height:160px;
+  right:5%;
+  top:45%;
+  background:radial-gradient(circle at 30% 30%,#fff,var(--purple),transparent 70%);
+  animation:float2 9s ease-in-out infinite;
+}
+
+@keyframes float1{
+  50%{transform:translate(30px,-50px)}
+}
+
+@keyframes float2{
+  50%{transform:translate(-30px,40px)}
+}
+
+/* ================= MARQUEE ================= */
+
+.marquee{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+  background:rgba(255,255,255,.025);
+  padding:18px 0;
+}
+
+.marquee-track{
+  display:flex;
+  width:max-content;
+  animation:move 25s linear infinite;
+}
+
+.marquee span{
+  font-family:"Space Grotesk";
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:#737b98;
+  margin:0 30px;
+}
+
+.marquee b{
+  color:var(--cyan);
+}
+
+@keyframes move{
+  to{transform:translateX(-50%)}
+}
+
+/* ================= GENERAL ================= */
+
+section{
+  padding:120px 20px;
+}
+
+.container{
+  width:min(1100px,100%);
+  margin:auto;
+}
+
+.section-label{
+  color:var(--cyan);
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:15px;
+}
+
+.section-title{
+  font-family:"Space Grotesk";
+  font-size:clamp(35px,5vw,65px);
+  line-height:1;
+  letter-spacing:-3px;
+}
+
+.section-description{
+  max-width:600px;
+  color:var(--muted);
+  margin-top:20px;
+  line-height:1.8;
+}
+
+/* ================= SERVICES ================= */
+
+.services-grid{
+  margin-top:55px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.service{
+  min-height:260px;
+  padding:32px;
+  border:1px solid var(--border);
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.065),
+    rgba(255,255,255,.015)
+  );
+  border-radius:25px;
+  position:relative;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.service::before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  right:-70px;
+  top:-70px;
+  border-radius:50%;
+  background:var(--cyan);
+  filter:blur(70px);
+  opacity:.15;
+}
+
+.service:hover{
+  transform:translateY(-8px);
+  border-color:rgba(0,245,255,.4);
+  box-shadow:0 25px 70px rgba(0,0,0,.3);
+}
+
+.service-number{
+  font-family:"Space Grotesk";
+  color:#505873;
+  font-size:13px;
+}
+
+.service-icon{
+  font-size:35px;
+  margin:25px 0 15px;
+}
+
+.service h3{
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.service p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+}
+
+/* ================= PRICE ================= */
+
+.price-section{
+  text-align:center;
+}
+
+.price-card{
+  margin:55px auto 0;
+  max-width:850px;
+  padding:55px 30px;
+  border-radius:35px;
+  border:1px solid rgba(0,245,255,.3);
+  background:
+    radial-gradient(circle at 50% 0%,rgba(0,245,255,.12),transparent 45%),
+    rgba(255,255,255,.04);
+  box-shadow:
+    0 0 100px rgba(0,245,255,.06);
+  position:relative;
+}
+
+.price-tag{
+  display:inline-block;
+  padding:8px 16px;
+  background:rgba(0,245,255,.1);
+  border:1px solid rgba(0,245,255,.3);
+  color:var(--cyan);
+  border-radius:50px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.price-card h3{
+  margin-top:25px;
+  color:#b5bdd4;
+  font-size:15px;
+  letter-spacing:3px;
+}
+
+.price{
+  font-family:"Space Grotesk";
+  font-size:clamp(55px,10vw,95px);
+  font-weight:700;
+  letter-spacing:-5px;
+  margin:5px 0;
+}
+
+.price small{
+  font-size:25px;
+  color:var(--cyan);
+}
+
+.price-card p{
+  color:var(--muted);
+}
+
+/* ================= FEATURES ================= */
+
+.features-grid{
+  margin-top:55px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.feature{
+  padding:25px 15px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:var(--card);
+  text-align:center;
+}
+
+.feature strong{
+  display:block;
+  color:#fff;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.feature span{
+  color:#00ffae;
+  font-size:23px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+  padding-bottom:80px;
+}
+
+.contact-card{
+  border-radius:35px;
+  padding:65px 30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(0,245,255,.14),transparent 35%),
+    radial-gradient(circle at 80% 100%,rgba(255,60,172,.12),transparent 35%),
+    rgba(255,255,255,.045);
+  border:1px solid var(--border);
+}
+
+.contact-card h2{
+  font-family:"Space Grotesk";
+  font-size:clamp(38px,6vw,70px);
+  letter-spacing:-3px;
+}
+
+.contact-card p{
+  color:var(--muted);
+  margin:15px auto 30px;
+}
+
+.owner{
+  margin:30px 0;
+  color:#c9cfe0;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.contact-links{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.contact-links a{
+  padding:13px 17px;
+  border-radius:12px;
+  color:white;
+  text-decoration:none;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+  font-size:13px;
+  transition:.3s;
+}
+
+.contact-links a:hover{
+  border-color:var(--cyan);
+  color:var(--cyan);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  border-top:1px solid var(--border);
+  padding:30px 20px;
+  text-align:center;
+  color:#68718d;
+  font-size:12px;
+}
+
+footer strong{
+  color:white;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+  color:white;
+  font-size:25px;
+  background:#20d66b;
+  box-shadow:0 0 35px rgba(32,214,107,.35);
+  z-index:999;
+  animation:whatsapp 2s infinite;
+}
+
+@keyframes whatsapp{
+  50%{transform:scale(1.08)}
+}
+
+/* ================= MOBILE ================= */
+
+.menu{
+  display:none;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:white;
+  padding:9px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:18px;
+}
+
+@media(max-width:800px){
+
+  nav{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    flex-direction:column;
+    padding:25px;
+    border-radius:18px;
+    background:#0b0b19;
+    border:1px solid var(--border);
+  }
+
+  nav.active{
+    display:flex;
+  }
+
+  .nav-btn{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero h1{
+    letter-spacing:-3px;
+  }
+
+  .orb{
+    opacity:.5;
+  }
+
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+
+  .features-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  section{
+    padding:85px 18px;
+  }
+}
+
+@media(max-width:500px){
+
+  .logo strong{
+    font-size:13px;
+  }
+
+  .hero{
+    padding-top:150px;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .features-grid{
+    grid-template-columns:1fr;
+  }
+
+  .service{
+    min-height:auto;
+  }
+
+  .price-card{
+    padding:45px 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+  <div class="navbar">
+
+    <a href="#home" class="logo">
+      <div class="logo-mark">M&V</div>
+
+      <div>
+        <strong>M&V DEVELOPERS</strong>
+        <small>DIGITAL INNOVATION</small>
+      </div>
+    </a>
+
+    <button class="menu" onclick="menu()">☰</button>
+
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-btn">
+      LET'S TALK →
+    </a>
+
+  </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <div class="hero-container">
+
+    <div class="badge">
+      <i></i>
+      WE BUILD DIGITAL EXPERIENCES
+    </div>
+
+    <h1>
+      YOUR BUSINESS.<br>
+      <span class="gradient-text">
+        OUR TECHNOLOGY.
+      </span>
+    </h1>
+
+    <p>
+      We don't just build websites.
+      We create digital experiences that make brands
+      impossible to ignore.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#contact" class="btn btn-primary">
+        START YOUR PROJECT ↗
+      </a>
+
+      <a href="#services" class="btn btn-secondary">
+        EXPLORE SERVICES
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= MARQUEE ================= -->
+
+<div class="marquee">
+  <div class="marquee-track">
+
+    <span><b>✦</b> WEB DEVELOPMENT</span>
+    <span><b>✦</b> E-COMMERCE</span>
+    <span><b>✦</b> UI / UX DESIGN</span>
+    <span><b>✦</b> SEO</span>
+    <span><b>✦</b> PERFORMANCE</span>
+    <span><b>✦</b> DIGITAL GROWTH</span>
+
+    <span><b>✦</b> WEB DEVELOPMENT</span>
+    <span><b>✦</b> E-COMMERCE</span>
+    <span><b>✦</b> UI / UX DESIGN</span>
+    <span><b>✦</b> SEO</span>
+    <span><b>✦</b> PERFORMANCE</span>
+    <span><b>✦</b> DIGITAL GROWTH</span>
+
+  </div>
+</div>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+  <div class="container">
+
+    <div class="section-label">01 — WHAT WE DO</div>
+
+    <h2 class="section-title">
+      We turn ideas<br>
+      <span class="gradient-text">into reality.</span>
+    </h2>
+
+    <p class="section-description">
+      From your first idea to a fully launched digital product,
+      we build everything with performance, design and growth in mind.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="service">
+        <div class="service-number">01 / 04</div>
+        <div class="service-icon">◉</div>
+        <h3>Custom Websites</h3>
+        <p>
+          Unique websites built from scratch around your
+          brand, goals and customers.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-number">02 / 04</div>
+        <div class="service-icon">◇</div>
+        <h3>E-Commerce</h3>
+        <p>
+          High-converting online stores designed to turn
+          visitors into customers.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-number">03 / 04</div>
+        <div class="service-icon">✦</div>
+        <h3>UI / UX Design</h3>
+        <p>
+          Modern interfaces that look beautiful and feel
+          effortless to use.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-number">04 / 04</div>
+        <div class="service-icon">↗</div>
+        <h3>SEO & Growth</h3>
+        <p>
+          Optimization and maintenance to help your
+          website perform better and reach more people.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRICING ================= -->
+
+<section class="price-section" id="pricing">
+
+  <div class="container">
+
+    <div class="section-label">02 — INVEST IN YOUR FUTURE</div>
+
+    <h2 class="section-title">
+      Premium doesn't<br>
+      have to mean <span class="gradient-text">expensive.</span>
+    </h2>
+
+    <div class="price-card">
+
+      <div class="price-tag">
+        STARTING PRICE
+      </div>
+
+      <h3>PROFESSIONAL WEBSITE</h3>
+
+      <div class="price">
+        ₹28,000<small>+</small>
+      </div>
+
+      <p>
+        Custom development • Mobile friendly • Fast performance
+        • SEO ready
+      </p>
+
+      <br>
+
+      <a href="#contact" class="btn btn-primary">
+        GET A QUOTE →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-label">03 — OUR PROMISE</div>
+
+    <h2 class="section-title">
+      Built different.<br>
+      <span class="gradient-text">Built better.</span>
+    </h2>
+
+    <div class="features-grid">
+
+      <div class="feature">
+        <span>✓</span>
+        <strong>100% Custom</strong>
+      </div>
+
+      <div class="feature">
+        <span>✓</span>
+        <strong>Mobile First</strong>
+      </div>
+
+      <div class="feature">
+        <span>✓</span>
+        <strong>Lightning Fast</strong>
+      </div>
+
+      <div class="feature">
+        <span>✓</span>
+        <strong>SEO Ready</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+  <div class="container">
+
+    <div class="contact-card">
+
+      <div class="section-label">
+        04 — LET'S CREATE
+      </div>
+
+      <h2>
+        Have an idea?<br>
+        <span class="gradient-text">Let's build it.</span>
+      </h2>
+
+      <p>
+        Your next big digital project could start with
+        one simple conversation.
+      </p>
+
+      <div class="owner">
+        <strong>MOHAMMED ARKAM ANSARI</strong><br>
+        <strong>& VEDANG BHAVSHAR</strong><br><br>
+        Founders — M&V Software Developers
+      </div>
+
+      <div class="contact-links">
+
+        <a href="tel:+918866558304">
+          📞 88665 58304
+        </a>
+
+        <a href="tel:+919313503048">
+          📞 93135 03048
+        </a>
+
+        <a href="mailto:contact@mvdevelopers.com">
+          ✉ contact@mvdevelopers.com
+        </a>
+
+      </div>
+
+      <br>
+
+      <a
+        href="https://wa.me/918866558304?text=Hello%20M%26V%20Developers%2C%20I%20want%20to%20discuss%20a%20website%20project."
+        target="_blank"
+        class="btn btn-primary">
+        CHAT ON WHATSAPP →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  © <span id="year"></span>
+  <strong>M&V SOFTWARE DEVELOPERS</strong>
+  — BUILDING THE DIGITAL FUTURE.
+
+</footer>
+
+
+<!-- ================= WHATSAPP ================= -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/918866558304?text=Hello%20M%26V%20Software%20Developers"
+  target="_blank">
+  ☎
+</a>
+
+
+<script>
+
+/* Mobile Menu */
+
+function menu(){
+  document.getElementById("nav").classList.toggle("active");
+}
+
+
+/* Current Year */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+/* Cursor Glow */
+
+const cursor = document.getElementById("cursor");
+
+document.addEventListener("mousemove", function(e){
+
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+
+});
+
+
+/* Close menu */
+
+document.querySelectorAll("nav a").forEach(function(link){
+
+  link.addEventListener("click",function(){
+
+    document.getElementById("nav").classList.remove("active");
+
+  });
+
+});
+
+
+/* Small scroll reveal */
+
+const cards = document.querySelectorAll(
+  ".service,.feature,.price-card,.contact-card"
+);
+
+const observer = new IntersectionObserver(
+  entries => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+
+      }
+
+    });
+
+  },
+  {threshold:.12}
+);
+
+cards.forEach(card => {
+
+  card.style.opacity = "0";
+  card.style.transform = "translateY(35px)";
+  card.style.transition = "opacity .7s ease, transform .7s ease";
+
+  observer.observe(card);
+
+});
+
+</script>
+
+</body>
+</html>
